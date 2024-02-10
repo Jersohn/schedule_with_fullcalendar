@@ -1,9 +1,10 @@
 <?php
-  
+
+use App\Http\Controllers\FullCalendarController;
 use Illuminate\Support\Facades\Route;
-  
-use App\Http\Controllers\FullCalenderController;
-  
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,16 @@ use App\Http\Controllers\FullCalenderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
-Route::get('fullcalender', [FullCalenderController::class, 'index']);
-Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
+
+
+
+
+
+Route::get('/', function () {
+    return view('full-calender');
+});
+
+Route::get('full-calender', [FullCalendarController::class, 'index']);
+
+Route::post('full-calender/action', [FullCalendarController::class, 'action']);
+
